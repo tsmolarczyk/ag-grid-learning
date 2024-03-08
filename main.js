@@ -41,11 +41,25 @@ let gridApi
 const gridOptions = {
     pagination: true,
     paginationAutoPageSize: true,
+    // Log new value when cell value changes
+    onCellValueChanged: (event) => {
+        console.log(`New Cell Value: ${event.value}`)
+    },
+    onSelectionChanged: (e) => {
+        console.log('onSelectionChanged was triggered!!')
+    },
+    rowSelection: 'multiple',
     columnDefs: [
-        { field: 'mission', filter: true },
+        { field: 'mission', filter: true, checkboxSelection: true },
         { field: 'company', cellRenderer: CompanyLogoRenderer },
         { field: 'location' },
-        { field: 'date' },
+        {
+            field: 'date',
+            valueFormatter: (p) => {
+                const dateValue = new Date(p.value)
+                return dateValue.toLocaleDateString()
+            }
+        },
         {
             field: 'price',
             valueFormatter: (params) => '$' + params.value.toLocaleString()
@@ -54,7 +68,8 @@ const gridOptions = {
         { field: 'rocket' }
     ],
     defaultColDef: {
-        filter: true
+        filter: true,
+        editable: true
     }
 }
 
