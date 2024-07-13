@@ -3,7 +3,7 @@ class CompanyLogoRenderer {
     // Optional: Params for rendering. The same params that are passed to the cellRenderer function.
     init(params) {
         let companyLogo = document.createElement('img');
-        companyLogo.src = `https://www.ag-grid.com/example-assets/space-company-logos/${params.value.toLowerCase()}.png`;
+        companyLogo.src = `https://www.ag-grid.com/example-assets/space-company-logos/${params.value.toLowerCase()}asd .png`;
         companyLogo.setAttribute(
             'style',
             'display: block; width: 25px; height: auto; max-height: 50%; margin-right: 12px; filter: brightness(1.1)'
