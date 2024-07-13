@@ -8,7 +8,7 @@ class CompanyLogoRenderer {
             'style',
             'display: block; width: 25px; height: auto; max-height: 50%; margin-right: 12px; filter: brightness(1.1)'
         );
-        let companyName = document.createElement('p');
+        let companyName = document.createElement('h1');
         companyName.textContent = params.value;
         companyName.setAttribute(
             'style',
@@ -66,6 +66,7 @@ let gridApi;
 
 // Grid Options: Contains all of the grid configurations
 const gridOptions = {
+    enableCharts: true,
     pagination: true,
     paginationAutoPageSize: true,
     // Log new value when cell value changes
